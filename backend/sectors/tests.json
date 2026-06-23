@@ -1,0 +1,19 @@
+{
+  "tests": [
+    {
+      "name": "Получить список секторов",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Обновление без пароля отклоняется",
+      "method": "PUT",
+      "path": "/",
+      "body": {"sectors": []},
+      "expectedStatus": 401,
+      "expectedBody": {"error": "string"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}

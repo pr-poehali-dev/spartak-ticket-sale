@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
+import func2url from '../../backend/func2url.json';
+
+const SECTORS_URL = func2url['sectors'];
 
 // ─── Типы ────────────────────────────────────────────────────────
 type Tier = 'platinum' | 'bronze' | 'standard' | 'vip' | 'corner' | 'press';
@@ -147,6 +150,19 @@ function makeOccupied(rows: number, seats: number, seed: number) {
 }
 const OCC: Record<string, Set<string>> = {};
 SECTORS.forEach((s, i) => { OCC[s.id] = makeOccupied(s.rows, s.seats, i * 4 + 1); });
+
+// ─── Применение данных из базы (цены/места) поверх схемы ──────────
+function applyDbSectors(rows: { id: string; label: string; tier: Tier; price: number; rows: number; seats: number }[]) {
+  rows.forEach((r, i) => {
+    if (SECTOR_MAP[r.id]) {
+      const prev = SECTOR_MAP[r.id];
+      SECTOR_MAP[r.id] = { ...prev, tier: r.tier, price: r.price, rows: r.rows, seats: r.seats };
+      if (prev.rows !== r.rows || prev.seats !== r.seats) {
+        OCC[r.id] = makeOccupied(r.rows, r.seats, i * 4 + 1);
+      }
+    }
+  });
+}
 
 // ─── SVG-схема: константы ─────────────────────────────────────────
 // Стадион прямоугольный с закруглёнными углами — как на картинке
@@ -388,6 +404,19 @@ const Booking = () => {
   const [hoveredSector, setHoveredSector] = useState<string | null>(null);
   const [selected, setSelected] = useState<SelectedSeat[]>([]);
   const [step, setStep] = useState<'map' | 'seats' | 'checkout' | 'done'>('map');
+  const [, setDataVersion] = useState(0);
+
+  useEffect(() => {
+    fetch(SECTORS_URL)
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.sectors) {
+          applyDbSectors(data.sectors);
+          setDataVersion((v) => v + 1);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const sInfo = activeSector ? SECTOR_MAP[activeSector] : null;
   const occ = activeSector ? OCC[activeSector] : new Set<string>();

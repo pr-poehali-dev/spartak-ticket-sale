@@ -1,0 +1,13 @@
+{
+  "tests": [
+    {
+      "name": "Пустой пароль отклоняется",
+      "method": "POST",
+      "path": "/",
+      "body": {"password": ""},
+      "expectedStatus": 401,
+      "expectedBody": {"ok": false},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
