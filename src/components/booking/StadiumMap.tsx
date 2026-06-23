@@ -127,9 +127,9 @@ function StadiumMap(props: StadiumMapProps) {
         <SectorRect key={id as string} id={id as string} x={x as number} y={y as number} w={48} h={36} {...props} fontSize={6.5} />
       ))}
       {/* Верхний ярус C211–C220 */}
-      {[['C220',250,638],
-        ['C219',296,638],['C218',342,638],['C217',388,638],['C216',434,638],
-        ['C215',480,638],['C214',526,638],['C213',572,638],['C212',618,638],['C211',664,638]
+      {[['C220',174,638],
+        ['C219',220,638],['C218',266,638],['C217',312,638],['C216',358,638],
+        ['C215',404,638],['C214',450,638],['C213',496,638],['C212',542,638],['C211',588,638]
       ].map(([id, x, y]) => (
         <SectorRect key={id as string} id={id as string} x={x as number} y={y as number} w={44} h={34} {...props} fontSize={5.8} />
       ))}
