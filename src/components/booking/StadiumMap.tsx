@@ -72,10 +72,6 @@ function StadiumMap(props: StadiumMapProps) {
       <SectorRect id="A7" x={494} y={40} w={52} h={66} {...props} />
       <SectorRect id="A8" x={550} y={40} w={52} h={66} {...props} fontSize={7} />
 
-      {/* Подпись трибуны A */}
-      <text x={SW / 2} y={84} textAnchor="middle" fill="#444" fontSize="9"
-        fontFamily="Oswald" fontWeight="700" letterSpacing="3">ЗАПАДНАЯ ТРИБУНА A</text>
-
       {/* ── ЮЖНАЯ ТРИБУНА D (слева) ─────────────────────────── */}
       {/* Нижний ярус D119–D125 */}
       {[['D119',114,382],['D120',114,338],['D121',114,294],
@@ -90,11 +86,6 @@ function StadiumMap(props: StadiumMapProps) {
       ].map(([id, x, y]) => (
         <SectorRect key={id as string} id={id as string} x={x as number} y={y as number} w={40} h={36} {...props} fontSize={6} />
       ))}
-      {/* Подпись */}
-      <text x={76} y={SH/2} textAnchor="middle" fill="#444" fontSize="8"
-        fontFamily="Oswald" fontWeight="700" letterSpacing="2"
-        transform={`rotate(-90,76,${SH/2})`}>ЮЖНАЯ ТРИБУНА D</text>
-
       {/* ── СЕВЕРНАЯ ТРИБУНА B (справа) ─────────────────────── */}
       {/* Нижний ярус B101–B107 */}
       {[['B101',606,118],['B102',606,162],['B103',606,206],
@@ -109,11 +100,6 @@ function StadiumMap(props: StadiumMapProps) {
       ].map(([id, x, y]) => (
         <SectorRect key={id as string} id={id as string} x={x as number} y={y as number} w={40} h={36} {...props} fontSize={6} />
       ))}
-      {/* Подпись */}
-      <text x={SW - 76} y={SH/2} textAnchor="middle" fill="#444" fontSize="8"
-        fontFamily="Oswald" fontWeight="700" letterSpacing="2"
-        transform={`rotate(90,${SW-76},${SH/2})`}>СЕВЕРНАЯ ТРИБУНА B</text>
-
       {/* ── ВОСТОЧНАЯ ТРИБУНА C (снизу) ─────────────────────── */}
       {/* Нижний ярус C109–C115 */}
       {[['C115',252,596],['C114',304,596],['C113',356,596],
@@ -133,10 +119,6 @@ function StadiumMap(props: StadiumMapProps) {
       ].map(([id, x, y]) => (
         <SectorRect key={id as string} id={id as string} x={x as number} y={y as number} w={44} h={34} {...props} fontSize={5.8} />
       ))}
-      {/* Подпись */}
-      <text x={SW/2} y={592} textAnchor="middle" fill="#444" fontSize="9"
-        fontFamily="Oswald" fontWeight="700" letterSpacing="3">ВОСТОЧНАЯ ТРИБУНА C</text>
-
       {/* ── Внутренний буфер ─────────────────────────────────── */}
       <rect x={INNER.x} y={INNER.y} width={INNER.w} height={INNER.h}
         rx="12" fill="#111" stroke="#1e1e1e" strokeWidth="1" />
