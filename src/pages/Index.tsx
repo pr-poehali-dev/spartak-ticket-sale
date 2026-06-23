@@ -192,7 +192,7 @@ const Index = () => {
                 <Icon name={t.icon} size={40} className={i === 1 ? 'text-white' : 'text-spartak'} />
                 <h3 className="font-display font-bold uppercase text-2xl mt-5 mb-2">{t.name}</h3>
                 <p className={`text-sm mb-6 ${i === 1 ? 'text-white/80' : 'text-white/50'}`}>{t.desc}</p>
-                <div className="font-display font-bold text-4xl mb-6">{t.price}₽</div>
+                <div className="font-display font-bold text-4xl mb-6">        2000р</div>
                 <Link to="/booking" className="block">
                   <Button className={`w-full h-12 rounded-none font-display uppercase tracking-wider ${
                     i === 1 ? 'bg-white text-spartak hover:bg-white/90' : 'bg-spartak hover:bg-spartak-dark text-white'
