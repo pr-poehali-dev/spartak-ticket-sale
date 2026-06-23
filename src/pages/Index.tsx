@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 
-const HERO_IMG = 'https://cdn.poehali.dev/projects/15cd0231-7a21-487c-b490-aa089d1bfe07/files/59c91a46-d5c6-4d09-8c23-f073749f5889.jpg';
+const HERO_IMG = 'https://cdn.poehali.dev/projects/15cd0231-7a21-487c-b490-aa089d1bfe07/files/cc7fbf27-63ec-4df5-b564-0225abba234c.jpg';
 
 const NAV = ['Главная', 'Матчи', 'Билеты', 'Фан ID', 'Новости', 'Контакты'];
 
