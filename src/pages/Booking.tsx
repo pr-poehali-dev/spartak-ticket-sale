@@ -190,6 +190,24 @@ const Booking = () => {
                 </div>
                 <Field label="Email для билетов" placeholder="ivan@mail.ru" type="email" />
                 <Field label="Телефон" placeholder="+7 999 000-00-00" type="tel" />
+
+                {/* ── ФАН ID ──────────────────────────────────── */}
+                <div className="pt-2 border-t border-white/10">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Icon name="IdCard" size={16} className="text-spartak" />
+                    <p className="text-xs text-white/40 uppercase tracking-wider">Фан ID болельщика</p>
+                  </div>
+                  <div className="bg-spartak/[0.06] border border-spartak/20 p-4 space-y-3">
+                    <p className="text-xs text-white/50 leading-relaxed">
+                      Вход на матч возможен только по Фан ID. Укажи номер карты болельщика — он привяжется к билету.
+                    </p>
+                    <Field label="Номер Фан ID" placeholder="4730 2819 4730" />
+                    <a href="/fan-id" className="inline-flex items-center gap-1.5 text-xs text-spartak hover:underline">
+                      <Icon name="ExternalLink" size={13} />Нет Фан ID? Узнать, как оформить
+                    </a>
+                  </div>
+                </div>
+
                 <div className="pt-2">
                   <p className="text-xs text-white/40 uppercase tracking-wider mb-3">Способ оплаты</p>
                   <div className="grid grid-cols-3 gap-3">
