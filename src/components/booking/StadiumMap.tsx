@@ -30,16 +30,19 @@ function SectorRect({
         strokeWidth={isActive ? 1.5 : 0.8}
         style={{ transition: 'fill 0.15s, stroke 0.15s' }}
       />
-      {s.label.split('\n').map((line, i) => (
-        <text key={i} x={x + w / 2} y={y + h / 2 + (i - (s.label.includes('\n') ? 0.5 : 0)) * (fontSize + 1)}
-          textAnchor="middle" dominantBaseline="middle"
-          fill={textFill} fontSize={fontSize}
-          fontFamily="Oswald, sans-serif" fontWeight="700"
-          style={{ pointerEvents: 'none', transition: 'fill 0.15s' }}
-        >
-          {line}
-        </text>
-      ))}
+      {s.label.split('\n').map((line, i) => {
+        const fs = (i === 0 ? fontSize * 1.8 : fontSize * 1.2);
+        return (
+          <text key={i} x={x + w / 2} y={y + h / 2 + (i - (s.label.includes('\n') ? 0.5 : 0)) * (fs + 1)}
+            textAnchor="middle" dominantBaseline="middle"
+            fill={textFill} fontSize={fs}
+            fontFamily="Oswald, sans-serif" fontWeight="700"
+            style={{ pointerEvents: 'none', transition: 'fill 0.15s' }}
+          >
+            {line}
+          </text>
+        );
+      })}
     </g>
   );
 }
