@@ -38,17 +38,10 @@ const SeatPicker = ({
         </div>
       </div>
 
-      {/* Ориентир поля */}
-      <div className="flex justify-center mb-3">
-        <div className="px-8 py-1.5 border border-green-500/25 bg-green-700/10 text-green-400 text-[10px] font-display uppercase tracking-[0.3em]">
-          ⚽ Поле
-        </div>
-      </div>
-
       {/* Кресла */}
       <div className="bg-white/[0.025] border border-white/[0.08] p-4 mb-4 overflow-x-auto">
         <div className="inline-flex flex-col gap-1.5 items-center min-w-full">
-          {Array.from({ length: sInfo.rows }).map((_, row) => (
+          {Array.from({ length: sInfo.rows }).map((_, i) => sInfo.rows - 1 - i).map((row) => (
             <div key={row} className="flex items-center gap-1.5">
               <span className="w-5 text-[9px] text-white/20 text-right select-none">{row + 1}</span>
               <div className="flex gap-[3px]">
@@ -73,6 +66,12 @@ const SeatPicker = ({
               <span className="w-5 text-[9px] text-white/20 text-left select-none">{row + 1}</span>
             </div>
           ))}
+        </div>
+        {/* Ориентир поля — снизу, 1-й ряд ближе к полю */}
+        <div className="flex justify-center mt-3">
+          <div className="px-8 py-1.5 border border-green-500/25 bg-green-700/10 text-green-400 text-[10px] font-display uppercase tracking-[0.3em]">
+            ⚽ Поле
+          </div>
         </div>
         <div className="flex flex-wrap gap-4 justify-center mt-5 pt-4 border-t border-white/10 text-[11px] text-white/50">
           <span className="flex items-center gap-1.5">
