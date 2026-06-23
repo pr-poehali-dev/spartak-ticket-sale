@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 
 const HERO_IMG = 'https://cdn.poehali.dev/projects/15cd0231-7a21-487c-b490-aa089d1bfe07/files/59c91a46-d5c6-4d09-8c23-f073749f5889.jpg';
 
-const NAV = ['Главная', 'Матчи', 'Билеты', 'История', 'Новости', 'Контакты'];
+const NAV = ['Главная', 'Матчи', 'Билеты', 'Фан ID', 'Новости', 'Контакты'];
 
 const MATCHES = [
   { id: 1, opp: 'ЦСКА', date: '28 июня', time: '19:00', tour: 'Тур 1', home: true, status: 'В продаже', price: 1500, tag: 'Дерби' },
@@ -241,6 +241,132 @@ const Index = () => {
         </div>
       </section>
 
+      {/* FAN ID */}
+      <section id="fan-id" className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-spartak-dark/20 via-transparent to-transparent pointer-events-none" />
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Левая часть — текст */}
+            <div>
+              <span className="text-spartak font-display uppercase tracking-[0.3em] text-sm">Обязательно для прохода</span>
+              <h2 className="font-display font-bold uppercase text-5xl md:text-6xl mt-2 mb-6">Фан ID</h2>
+              <p className="text-white/60 mb-8 max-w-md leading-relaxed">
+                С сезона 2023 года вход на матчи Российской Премьер-Лиги осуществляется только по Фан ID.
+                Это персональная карта болельщика, привязанная к паспорту и билету.
+              </p>
+              <div className="space-y-4 mb-8">
+                {[
+                  { icon: 'ShieldCheck', title: 'Безопасность', desc: 'Идентификация обеспечивает порядок на трибунах и защиту болельщиков' },
+                  { icon: 'Ticket',      title: 'Привязка к билету', desc: 'Фан ID привязывается к каждому купленному билету автоматически' },
+                  { icon: 'Clock',       title: 'Оформление за 5 минут', desc: 'Подай заявку на портале Госуслуги — решение приходит за 1–3 дня' },
+                  { icon: 'Gift',        title: 'Бонусы и скидки', desc: 'Владельцы Фан ID получают эксклюзивные предложения от клуба' },
+                ].map((item) => (
+                  <div key={item.icon} className="flex items-start gap-4 bg-white/[0.03] border border-white/[0.07] p-4">
+                    <div className="w-10 h-10 bg-spartak/20 border border-spartak/30 flex items-center justify-center flex-shrink-0">
+                      <Icon name={item.icon} size={20} className="text-spartak" />
+                    </div>
+                    <div>
+                      <div className="font-display font-bold uppercase text-sm tracking-wide">{item.title}</div>
+                      <div className="text-white/50 text-sm mt-0.5">{item.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-4">
+                <a href="https://www.gosuslugi.ru/fanid" target="_blank" rel="noopener noreferrer">
+                  <Button className="h-13 px-8 bg-spartak hover:bg-spartak-dark text-white font-display uppercase tracking-wider rounded-none">
+                    <span className="flex items-center gap-2"><Icon name="ExternalLink" size={18} />Оформить на Госуслугах</span>
+                  </Button>
+                </a>
+                <Button variant="outline" className="h-13 px-8 border-white/20 bg-transparent hover:bg-white/5 text-white font-display uppercase tracking-wider rounded-none">
+                  Узнать больше
+                </Button>
+              </div>
+            </div>
+
+            {/* Правая часть — карточка Фан ID */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-sm">
+                {/* Фоновое свечение */}
+                <div className="absolute -inset-8 bg-spartak/10 blur-3xl rounded-full" />
+                {/* Карта Фан ID */}
+                <div className="relative bg-gradient-to-br from-spartak-dark to-spartak border border-spartak/50 rounded-2xl p-7 shadow-2xl">
+                  {/* Шапка карты */}
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="flex items-center gap-2">
+                      <div className="w-9 h-9 bg-white rounded-full flex items-center justify-center font-display font-bold text-spartak text-lg">С</div>
+                      <span className="font-display font-bold uppercase tracking-wider text-sm">Спартак</span>
+                    </div>
+                    <span className="text-white/60 text-xs uppercase tracking-[0.2em] font-display">Фан ID</span>
+                  </div>
+                  {/* Аватар */}
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center border-2 border-white/40">
+                      <Icon name="User" size={30} className="text-white/70" />
+                    </div>
+                    <div>
+                      <div className="font-display font-bold text-xl uppercase">Иван Петров</div>
+                      <div className="text-white/60 text-sm">Болельщик · с 2019</div>
+                      <div className="flex items-center gap-1 mt-1">
+                        {Array.from({length: 5}).map((_,i) => (
+                          <div key={i} className="w-4 h-4 bg-white/80 rounded-sm flex items-center justify-center">
+                            <Icon name="Star" size={10} className="text-spartak" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  {/* Данные */}
+                  <div className="grid grid-cols-2 gap-3 mb-6">
+                    {[
+                      { l: 'Номер', v: '47 302 819' },
+                      { l: 'Матчей', v: '48' },
+                      { l: 'Сезон', v: '2026' },
+                      { l: 'Сектор', v: 'A3' },
+                    ].map((d) => (
+                      <div key={d.l} className="bg-white/10 rounded-lg px-3 py-2.5">
+                        <div className="text-white/50 text-[10px] uppercase tracking-wider">{d.l}</div>
+                        <div className="font-display font-bold text-base">{d.v}</div>
+                      </div>
+                    ))}
+                  </div>
+                  {/* Штрихкод */}
+                  <div className="bg-white rounded-lg p-3 flex items-center justify-center gap-px">
+                    {Array.from({length: 42}).map((_, i) => (
+                      <div key={i} className="bg-black rounded-sm"
+                        style={{ width: (i % 3 === 0 ? 3 : i % 2 === 0 ? 2 : 1), height: i % 5 === 0 ? 36 : 28 }} />
+                    ))}
+                  </div>
+                  <div className="text-center text-white/40 text-[10px] mt-2 font-mono tracking-widest">4730281947302819</div>
+                </div>
+                {/* Дополнительная тень снизу */}
+                <div className="absolute -bottom-4 left-8 right-8 h-8 bg-spartak/30 blur-xl rounded-full" />
+              </div>
+            </div>
+          </div>
+
+          {/* Шаги оформления */}
+          <div className="mt-20 pt-16 border-t border-white/10">
+            <h3 className="font-display font-bold uppercase text-3xl text-center mb-10">Как оформить Фан ID</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { n: '01', icon: 'Smartphone', title: 'Зайди на Госуслуги', desc: 'Открой gosuslugi.ru или приложение и найди раздел «Фан ID»' },
+                { n: '02', icon: 'FileText',   title: 'Подай заявку',      desc: 'Заполни форму с паспортными данными и загрузи фото' },
+                { n: '03', icon: 'Clock',      title: 'Дождись решения',   desc: 'Заявка рассматривается 1–3 рабочих дня' },
+                { n: '04', icon: 'Ticket',     title: 'Покупай билеты',    desc: 'После получения Фан ID билеты можно оформлять на нашем сайте' },
+              ].map((step) => (
+                <div key={step.n} className="relative bg-white/[0.03] border border-white/[0.07] p-6 group hover:border-spartak/40 transition-colors">
+                  <div className="absolute -top-4 left-6 font-display font-bold text-4xl text-spartak/20 group-hover:text-spartak/40 transition-colors">{step.n}</div>
+                  <Icon name={step.icon} size={28} className="text-spartak mb-4 mt-3" />
+                  <div className="font-display font-bold uppercase text-base mb-2">{step.title}</div>
+                  <div className="text-white/50 text-sm leading-relaxed">{step.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* NOTIFY CTA */}
       <section className="py-20">
         <div className="container">
@@ -275,7 +401,7 @@ const Index = () => {
             <p className="text-white/40 text-sm">Народная команда. Официальный сайт продажи билетов.</p>
           </div>
           {[
-            { t: 'Клуб', l: ['История', 'Стадион', 'Игроки', 'Новости'] },
+            { t: 'Клуб', l: ['Фан ID', 'Стадион', 'Игроки', 'Новости'] },
             { t: 'Билеты', l: ['Расписание', 'Абонементы', 'VIP-ложи', 'Возврат'] },
             { t: 'Контакты', l: ['+7 495 111-11-11', 'tickets@spartak.com', 'Москва, Открытие Арена'] },
           ].map((c) => (
