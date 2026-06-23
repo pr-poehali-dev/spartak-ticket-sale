@@ -53,7 +53,9 @@ const Index = () => {
           </div>
           <nav className="hidden md:flex items-center gap-7">
             {NAV.map((n) => (
-              <a key={n} href="#" className="text-sm uppercase tracking-wider text-white/70 hover:text-spartak transition-colors">{n}</a>
+              n === 'Фан ID'
+                ? <Link key={n} to="/fan-id" className="text-sm uppercase tracking-wider text-white/70 hover:text-spartak transition-colors">{n}</Link>
+                : <a key={n} href="#" className="text-sm uppercase tracking-wider text-white/70 hover:text-spartak transition-colors">{n}</a>
             ))}
           </nav>
           <div className="flex items-center gap-4">
@@ -278,9 +280,11 @@ const Index = () => {
                     <span className="flex items-center gap-2"><Icon name="ExternalLink" size={18} />Оформить на Госуслугах</span>
                   </Button>
                 </a>
-                <Button variant="outline" className="h-13 px-8 border-white/20 bg-transparent hover:bg-white/5 text-white font-display uppercase tracking-wider rounded-none">
-                  Узнать больше
-                </Button>
+                <Link to="/fan-id">
+                  <Button variant="outline" className="h-13 px-8 border-white/20 bg-transparent hover:bg-white/5 text-white font-display uppercase tracking-wider rounded-none">
+                    Узнать больше
+                  </Button>
+                </Link>
               </div>
             </div>
 
@@ -427,7 +431,11 @@ const Index = () => {
               <h4 className="font-display uppercase tracking-wider text-sm mb-4 text-spartak">{c.t}</h4>
               <ul className="space-y-2">
                 {c.l.map((x) => (
-                  <li key={x}><a href="#" className="text-white/50 hover:text-white text-sm transition-colors">{x}</a></li>
+                  <li key={x}>
+                    {x === 'Фан ID'
+                      ? <Link to="/fan-id" className="text-white/50 hover:text-white text-sm transition-colors">{x}</Link>
+                      : <a href="#" className="text-white/50 hover:text-white text-sm transition-colors">{x}</a>}
+                  </li>
                 ))}
               </ul>
             </div>
