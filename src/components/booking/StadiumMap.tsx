@@ -109,7 +109,9 @@ function StadiumMap(props: StadiumMapProps) {
       ))}
       {/* C116 — рядом с C115 */}
       <SectorRect id="C116" x={200} y={596} w={48} h={38} {...props} fontSize={6.5} />
-      {[['C110',158,638],['C109',210,638]].map(([id, x, y]) => (
+      {/* C110 — поднят к C111 */}
+      <SectorRect id="C110" x={512} y={596} w={48} h={38} {...props} fontSize={6.5} />
+      {[['C109',210,638]].map(([id, x, y]) => (
         <SectorRect key={id as string} id={id as string} x={x as number} y={y as number} w={48} h={36} {...props} fontSize={6.5} />
       ))}
       {/* Верхний ярус C211–C220 */}
