@@ -115,13 +115,14 @@ function StadiumMap(props: StadiumMapProps) {
         transform={`rotate(90,${SW-76},${SH/2})`}>СЕВЕРНАЯ ТРИБУНА B</text>
 
       {/* ── ВОСТОЧНАЯ ТРИБУНА C (снизу) ─────────────────────── */}
-      {/* Нижний ярус C109–C116 */}
-      {[['C116',314,596],
-        ['C115',366,596],['C114',418,596],['C113',470,596],
+      {/* Нижний ярус C109–C115 */}
+      {[['C115',366,596],['C114',418,596],['C113',470,596],
         ['C112',522,596],['C111',574,596]
       ].map(([id, x, y]) => (
         <SectorRect key={id as string} id={id as string} x={x as number} y={y as number} w={48} h={38} {...props} fontSize={6.5} />
       ))}
+      {/* C116 — сдвинут к углу B (справа) */}
+      <SectorRect id="C116" x={606} y={540} w={48} h={44} {...props} fontSize={6.5} />
       {[['C110',158,638],['C109',210,638]].map(([id, x, y]) => (
         <SectorRect key={id as string} id={id as string} x={x as number} y={y as number} w={48} h={36} {...props} fontSize={6.5} />
       ))}
