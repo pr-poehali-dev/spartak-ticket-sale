@@ -114,9 +114,6 @@ export const SECTORS: SectorDef[] = [
   { id: 'C114',     label: 'C114',     tier: 'standard', price: 1800,  rows: 16, seats: 18 },
   { id: 'C115',     label: 'C115',     tier: 'standard', price: 1800,  rows: 16, seats: 18 },
   { id: 'C116',     label: 'C116',     tier: 'standard', price: 1800,  rows: 16, seats: 18 },
-  { id: 'C117',     label: 'C117',     tier: 'standard', price: 1800,  rows: 16, seats: 18 },
-  { id: 'C118',     label: 'C118',     tier: 'standard', price: 1800,  rows: 16, seats: 18 },
-  { id: 'C119',     label: 'C119',     tier: 'standard', price: 1800,  rows: 16, seats: 18 },
   // Восточная C — верхний ярус
   { id: 'C211',     label: 'C211',     tier: 'corner',   price: 2500,  rows: 12, seats: 14 },
   { id: 'C212',     label: 'C212',     tier: 'corner',   price: 2500,  rows: 12, seats: 14 },
@@ -128,9 +125,6 @@ export const SECTORS: SectorDef[] = [
   { id: 'C218',     label: 'C218',     tier: 'corner',   price: 2500,  rows: 12, seats: 14 },
   { id: 'C219',     label: 'C219',     tier: 'corner',   price: 2500,  rows: 12, seats: 14 },
   { id: 'C220',     label: 'C220',     tier: 'corner',   price: 2500,  rows: 12, seats: 14 },
-  { id: 'C221',     label: 'C221',     tier: 'corner',   price: 2500,  rows: 12, seats: 14 },
-  { id: 'C222',     label: 'C222',     tier: 'corner',   price: 2500,  rows: 12, seats: 14 },
-  { id: 'C223',     label: 'C223',     tier: 'corner',   price: 2500,  rows: 12, seats: 14 },
 ];
 
 export const SECTOR_MAP: Record<string, SectorDef> = {};
