@@ -134,16 +134,10 @@ const Index = () => {
                   <span className="text-white/40 text-xs uppercase tracking-widest">{m.tour}</span>
                   <span className={`text-xs uppercase font-semibold tracking-wider ${m.status === 'В продаже' ? 'text-green-400' : 'text-yellow-400'}`}>{m.status}</span>
                 </div>
-                <div className="flex items-center justify-center gap-4 mb-6">
-                  <div className="text-center">
-                    <div className="w-14 h-14 bg-spartak rounded-full flex items-center justify-center font-display font-bold text-2xl mx-auto mb-2">С</div>
-                    <span className="text-xs uppercase tracking-wide">Спартак</span>
-                  </div>
-                  <span className="font-display font-bold text-2xl text-white/30">VS</span>
-                  <div className="text-center">
-                    <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center font-display font-bold text-2xl mx-auto mb-2">{m.opp[0]}</div>
-                    <span className="text-xs uppercase tracking-wide">{m.opp}</span>
-                  </div>
+                <div className="flex items-center justify-center gap-3 mb-6">
+                  <span className="font-display font-bold uppercase text-2xl text-center leading-tight">Спартак</span>
+                  <span className="font-display font-bold text-xl text-spartak">VS</span>
+                  <span className="font-display font-bold uppercase text-2xl text-center leading-tight">{m.opp}</span>
                 </div>
                 <div className="flex items-center justify-center gap-4 text-white/60 text-sm mb-6">
                   <span className="flex items-center gap-1"><Icon name="Calendar" size={15} />{m.date}</span>
