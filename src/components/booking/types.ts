@@ -61,10 +61,10 @@ export const SECTORS: SectorDef[] = [
   // Западная A — 1й ярус
   { id: 'A1',       label: 'A1',       tier: 'bronze',   price: 3500,  rows: 20, seats: 22 },
   { id: 'A2',       label: 'A2',       tier: 'bronze',   price: 3500,  rows: 20, seats: 22 },
-  { id: 'A3',       label: 'A3\nБронза', tier: 'bronze', price: 3500,  rows: 20, seats: 22 },
+  { id: 'A3',       label: 'A3\nBronze', tier: 'bronze', price: 3500,  rows: 20, seats: 22 },
   { id: 'A4',       label: 'A4',       tier: 'platinum', price: 12000, rows: 16, seats: 18 },
   { id: 'A5',       label: 'A5',       tier: 'platinum', price: 12000, rows: 16, seats: 18 },
-  { id: 'A6',       label: 'A6\nБронза', tier: 'bronze', price: 3500,  rows: 20, seats: 22 },
+  { id: 'A6',       label: 'A6\nBronze', tier: 'bronze', price: 3500,  rows: 20, seats: 22 },
   { id: 'A7',       label: 'A7',       tier: 'bronze',   price: 3500,  rows: 20, seats: 22 },
   { id: 'A8',       label: 'A8\nПресса', tier: 'press',  price: 0,     rows: 12, seats: 14 },
   // Южная D — нижний ярус
