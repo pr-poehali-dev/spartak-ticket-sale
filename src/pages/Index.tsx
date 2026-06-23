@@ -43,7 +43,7 @@ const Index = () => {
         <div className="container flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-spartak rounded-full flex items-center justify-center font-display font-bold text-xl skew-x-[-6deg]">С</div>
-            <span className="font-display font-bold text-xl tracking-wide uppercase">Спартак</span>
+            <span className="font-display font-bold text-base md:text-xl tracking-wide uppercase">Онлайн продажа билетов</span>
           </div>
           <nav className="hidden md:flex items-center gap-7">
             {NAV.map((n) => (
