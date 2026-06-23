@@ -345,9 +345,27 @@ const Index = () => {
             </div>
           </div>
 
+          {/* Видео */}
+          <div className="mt-16 pt-16 border-t border-white/10">
+            <div className="text-center mb-8">
+              <span className="text-spartak font-display uppercase tracking-[0.3em] text-sm">Видеоинструкция</span>
+              <h3 className="font-display font-bold uppercase text-3xl md:text-4xl mt-2">Как оформить Фан ID</h3>
+            </div>
+            <div className="relative w-full max-w-3xl mx-auto rounded-xl overflow-hidden border border-white/10 shadow-2xl"
+              style={{ paddingTop: '56.25%' }}>
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/L_icDHSFYdw?rel=0&modestbranding=1"
+                title="Как оформить Фан ID"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+
           {/* Шаги оформления */}
-          <div className="mt-20 pt-16 border-t border-white/10">
-            <h3 className="font-display font-bold uppercase text-3xl text-center mb-10">Как оформить Фан ID</h3>
+          <div className="mt-16">
+            <h3 className="font-display font-bold uppercase text-3xl text-center mb-10">Шаги оформления</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { n: '01', icon: 'Smartphone', title: 'Зайди на Госуслуги', desc: 'Открой gosuslugi.ru или приложение и найди раздел «Фан ID»' },
