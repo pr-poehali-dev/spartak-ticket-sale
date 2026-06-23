@@ -61,16 +61,16 @@ function StadiumMap(props: StadiumMapProps) {
       {/* ── ЗАПАДНАЯ ТРИБУНА A (сверху) ─────────────────────── */}
       {/* Ярус 1: A1–A8 — прямоугольники по всей ширине сверху */}
       {/* A1 */ }
-      <SectorRect id="A1" x={158} y={28} w={52} h={46} {...props} />
-      <SectorRect id="A2" x={214} y={18} w={52} h={56} {...props} />
-      <SectorRect id="A3" x={270} y={12} w={52} h={62} {...props} />
+      <SectorRect id="A1" x={158} y={8} w={52} h={66} {...props} />
+      <SectorRect id="A2" x={214} y={8} w={52} h={66} {...props} />
+      <SectorRect id="A3" x={270} y={8} w={52} h={66} {...props} />
       {/* A4 Platinum */}
       <SectorRect id="A4" x={326} y={8}  w={52} h={66} {...props} fontSize={7} />
       {/* A5 Platinum */}
       <SectorRect id="A5" x={382} y={8}  w={52} h={66} {...props} fontSize={7} />
-      <SectorRect id="A6" x={438} y={12} w={52} h={62} {...props} />
-      <SectorRect id="A7" x={494} y={18} w={52} h={56} {...props} />
-      <SectorRect id="A8" x={548} y={28} w={54} h={46} {...props} fontSize={7} />
+      <SectorRect id="A6" x={438} y={8} w={52} h={66} {...props} />
+      <SectorRect id="A7" x={494} y={8} w={52} h={66} {...props} />
+      <SectorRect id="A8" x={550} y={8} w={52} h={66} {...props} fontSize={7} />
 
       {/* Подпись трибуны A */}
       <text x={SW / 2} y={84} textAnchor="middle" fill="#444" fontSize="9"
