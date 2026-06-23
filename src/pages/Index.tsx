@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 
@@ -33,7 +34,6 @@ const TIERS = [
 
 const Index = () => {
   const [filter, setFilter] = useState('Все');
-  const [cart, setCart] = useState<number[]>([]);
 
   const filtered = MATCHES.filter((m) => {
     if (filter === 'Дома') return m.home;
@@ -41,9 +41,6 @@ const Index = () => {
     if (filter === 'Дерби') return m.tag === 'Дерби';
     return true;
   });
-
-  const toggleCart = (id: number) =>
-    setCart((c) => (c.includes(id) ? c.filter((x) => x !== id) : [...c, id]));
 
   return (
     <div className="min-h-screen bg-spartak-black font-body text-white overflow-x-hidden">
@@ -60,13 +57,10 @@ const Index = () => {
             ))}
           </nav>
           <div className="flex items-center gap-4">
-            <button className="relative">
+            <Link to="/booking" className="relative hover:text-spartak transition-colors">
               <Icon name="ShoppingCart" size={22} />
-              {cart.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-spartak text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">{cart.length}</span>
-              )}
-            </button>
-            <button><Icon name="User" size={22} /></button>
+            </Link>
+            <button className="hover:text-spartak transition-colors"><Icon name="User" size={22} /></button>
           </div>
         </div>
       </header>
@@ -91,9 +85,11 @@ const Index = () => {
               Покупай билеты на домашние матчи легендарного клуба. Стань частью красно-белой стихии.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button className="bg-spartak hover:bg-spartak-dark text-white font-display uppercase tracking-wider text-base h-14 px-8 rounded-none skew-x-[-6deg]">
-                <span className="skew-x-[6deg] flex items-center gap-2"><Icon name="Ticket" size={20} />Купить билеты</span>
-              </Button>
+              <Link to="/booking">
+                <Button className="bg-spartak hover:bg-spartak-dark text-white font-display uppercase tracking-wider text-base h-14 px-8 rounded-none skew-x-[-6deg]">
+                  <span className="skew-x-[6deg] flex items-center gap-2"><Icon name="Ticket" size={20} />Купить билеты</span>
+                </Button>
+              </Link>
               <Button variant="outline" className="border-white/30 bg-transparent hover:bg-white/10 text-white font-display uppercase tracking-wider text-base h-14 px-8 rounded-none">
                 Расписание
               </Button>
@@ -163,15 +159,13 @@ const Index = () => {
                     <span className="text-white/40 text-xs">от</span>
                     <span className="font-display font-bold text-2xl ml-1">{m.price}₽</span>
                   </div>
-                  <button
-                    onClick={() => toggleCart(m.id)}
-                    className={`px-5 py-2.5 font-display uppercase text-sm tracking-wider transition-all flex items-center gap-2 ${
-                      cart.includes(m.id) ? 'bg-green-600 text-white' : 'bg-spartak hover:bg-spartak-dark text-white'
-                    }`}
-                  >
-                    <Icon name={cart.includes(m.id) ? 'Check' : 'Plus'} size={16} />
-                    {cart.includes(m.id) ? 'В корзине' : 'Билет'}
-                  </button>
+                  <Link to="/booking">
+                    <button
+                      className="px-5 py-2.5 font-display uppercase text-sm tracking-wider transition-all flex items-center gap-2 bg-spartak hover:bg-spartak-dark text-white"
+                    >
+                      <Icon name="Ticket" size={16} />Билет
+                    </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -199,11 +193,13 @@ const Index = () => {
                 <h3 className="font-display font-bold uppercase text-2xl mt-5 mb-2">{t.name}</h3>
                 <p className={`text-sm mb-6 ${i === 1 ? 'text-white/80' : 'text-white/50'}`}>{t.desc}</p>
                 <div className="font-display font-bold text-4xl mb-6">{t.price}₽</div>
-                <Button className={`w-full h-12 rounded-none font-display uppercase tracking-wider ${
-                  i === 1 ? 'bg-white text-spartak hover:bg-white/90' : 'bg-spartak hover:bg-spartak-dark text-white'
-                }`}>
-                  Выбрать
-                </Button>
+                <Link to="/booking" className="block">
+                  <Button className={`w-full h-12 rounded-none font-display uppercase tracking-wider ${
+                    i === 1 ? 'bg-white text-spartak hover:bg-white/90' : 'bg-spartak hover:bg-spartak-dark text-white'
+                  }`}>
+                    Выбрать
+                  </Button>
+                </Link>
               </div>
             ))}
           </div>
