@@ -107,8 +107,8 @@ function StadiumMap(props: StadiumMapProps) {
       ].map(([id, x, y]) => (
         <SectorRect key={id as string} id={id as string} x={x as number} y={y as number} w={48} h={38} {...props} fontSize={6.5} />
       ))}
-      {/* C116 — сдвинут к углу D (слева, под D119) */}
-      <SectorRect id="C116" x={114} y={540} w={48} h={44} {...props} fontSize={6.5} />
+      {/* C116 — рядом с C115 */}
+      <SectorRect id="C116" x={200} y={596} w={48} h={38} {...props} fontSize={6.5} />
       {[['C110',158,638],['C109',210,638]].map(([id, x, y]) => (
         <SectorRect key={id as string} id={id as string} x={x as number} y={y as number} w={48} h={36} {...props} fontSize={6.5} />
       ))}
