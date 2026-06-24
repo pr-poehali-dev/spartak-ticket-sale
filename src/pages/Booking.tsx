@@ -122,9 +122,25 @@ const Booking = () => {
         </div>
       </div>
 
+      {/* ── КОРЗИНА (мобайл — фиксированная панель снизу) ───────── */}
+      {step !== 'done' && (
+        <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-spartak-black/95 backdrop-blur-md border-t border-white/10 px-4 py-3 flex items-center justify-between gap-3">
+          <div>
+            <div className="text-white/40 text-xs">{selected.length > 0 ? `${selected.length} билет${selected.length === 1 ? '' : selected.length < 5 ? 'а' : 'ов'}` : 'Выбери место'}</div>
+            <div className="font-display font-bold text-xl">{selected.length > 0 ? `${total.toLocaleString('ru')}₽` : '—'}</div>
+          </div>
+          <Button
+            disabled={selected.length === 0}
+            onClick={() => step === 'seats' ? setStep('checkout') : step === 'map' ? undefined : undefined}
+            className="h-11 px-6 bg-spartak hover:bg-spartak-dark text-white font-display uppercase tracking-wider rounded-none disabled:opacity-25 text-sm flex-shrink-0">
+            {step === 'checkout' ? 'Заполни форму →' : 'Оформить →'}
+          </Button>
+        </div>
+      )}
+
       <div className="container py-6 grid lg:grid-cols-[1fr_340px] gap-6 items-start">
         {/* LEFT */}
-        <div>
+        <div className="pb-24 lg:pb-0">
 
           {/* ── СХЕМА СТАДИОНА ───────────────────────────────── */}
           {step === 'map' && (
@@ -249,15 +265,17 @@ const Booking = () => {
           )}
         </div>
 
-        {/* ── КОРЗИНА ──────────────────────────────────────────── */}
+        {/* ── КОРЗИНА (десктоп) ────────────────────────────────── */}
         {step !== 'done' && (
-          <Cart
-            selected={selected}
-            setSelected={setSelected}
-            total={total}
-            step={step}
-            setStep={setStep}
-          />
+          <div className="hidden lg:block">
+            <Cart
+              selected={selected}
+              setSelected={setSelected}
+              total={total}
+              step={step}
+              setStep={setStep}
+            />
+          </div>
         )}
       </div>
     </div>
