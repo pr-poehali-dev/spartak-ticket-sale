@@ -55,8 +55,9 @@ const Index = () => {
       <header className="fixed top-0 inset-x-0 z-50 bg-spartak-black/85 backdrop-blur-md border-b border-white/10">
         <div className="container flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-spartak rounded-full flex items-center justify-center font-display font-bold text-xl skew-x-[-6deg]">С</div>
-            <span className="font-display font-bold text-base md:text-xl tracking-wide uppercase">Онлайн продажа билетов</span>
+            <div className="w-10 h-10 bg-spartak rounded-full flex items-center justify-center font-display font-bold text-xl skew-x-[-6deg] flex-shrink-0">С</div>
+            <span className="font-display font-bold text-sm md:text-xl tracking-wide uppercase hidden xs:block sm:block">Онлайн продажа билетов</span>
+            <span className="font-display font-bold text-base tracking-wide uppercase sm:hidden">Спартак</span>
           </div>
           <nav className="hidden md:flex items-center gap-7">
             {NAV.map((n) => (
@@ -87,7 +88,7 @@ const Index = () => {
               <Icon name="Flame" size={16} />
               <span className="text-xs uppercase tracking-widest font-semibold skew-x-[6deg]">Сезон 2026 открыт</span>
             </div>
-            <h1 className="font-display font-bold uppercase leading-[0.9] text-6xl md:text-8xl mb-6">
+            <h1 className="font-display font-bold uppercase leading-[0.9] text-5xl md:text-8xl mb-4 md:mb-6">
               Гладиатор<br /><span className="text-spartak">в каждом</span><br />из нас
             </h1>
             <p className="text-lg text-white/70 mb-8 max-w-md">
@@ -111,12 +112,12 @@ const Index = () => {
       </section>
 
       {/* MATCHES */}
-      <section className="py-24 relative">
+      <section className="py-12 md:py-24 relative">
         <div className="container">
-          <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-8 md:mb-12">
             <div>
               <span className="text-spartak font-display uppercase tracking-[0.3em] text-sm">Календарь</span>
-              <h2 className="font-display font-bold uppercase text-5xl md:text-6xl mt-2">Ближайшие матчи</h2>
+              <h2 className="font-display font-bold uppercase text-4xl md:text-6xl mt-2">Ближайшие матчи</h2>
             </div>
             <div className="flex flex-wrap gap-3">
               {FILTERS.map((f) => (
@@ -177,11 +178,11 @@ const Index = () => {
       </section>
 
       {/* STANDINGS */}
-      <section className="py-24">
-        <div className="container grid lg:grid-cols-2 gap-12 items-center">
+      <section className="py-12 md:py-24">
+        <div className="container grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="animate-slide-in-left" style={{ opacity: 0 }}>
             <span className="text-spartak font-display uppercase tracking-[0.3em] text-sm">Статистика</span>
-            <h2 className="font-display font-bold uppercase text-5xl md:text-6xl mt-2 mb-6">Таблица<br />чемпионата</h2>
+            <h2 className="font-display font-bold uppercase text-4xl md:text-6xl mt-2 mb-4 md:mb-6">Таблица<br />чемпионата</h2>
             <p className="text-white/60 mb-8 max-w-md">Следи за положением красно-белых в турнирной таблице Российской Премьер-Лиги.</p>
             <div className="grid grid-cols-3 gap-4">
               {[{ n: '64', l: 'Очков' }, { n: '2', l: 'Место' }, { n: '19', l: 'Побед' }].map((s) => (
@@ -193,13 +194,13 @@ const Index = () => {
             </div>
           </div>
           <div className="bg-white/[0.04] border border-white/10">
-            <div className="grid grid-cols-[40px_1fr_60px_60px] gap-2 px-6 py-4 text-xs uppercase tracking-wider text-white/40 border-b border-white/10">
+            <div className="grid grid-cols-[32px_1fr_44px_44px] gap-2 px-4 md:px-6 py-3 text-xs uppercase tracking-wider text-white/40 border-b border-white/10">
               <span>#</span><span>Команда</span><span className="text-center">И</span><span className="text-center">О</span>
             </div>
             {STANDINGS.map((s) => (
               <div
                 key={s.pos}
-                className={`grid grid-cols-[40px_1fr_60px_60px] gap-2 px-6 py-4 items-center border-b border-white/5 ${s.hl ? 'bg-spartak/15' : ''}`}
+                className={`grid grid-cols-[32px_1fr_44px_44px] gap-2 px-4 md:px-6 py-3 items-center border-b border-white/5 ${s.hl ? 'bg-spartak/15' : ''}`}
               >
                 <span className={`font-display font-bold ${s.hl ? 'text-spartak' : ''}`}>{s.pos}</span>
                 <span className={`font-medium ${s.hl ? 'text-spartak' : ''}`}>{s.team}</span>
@@ -212,9 +213,9 @@ const Index = () => {
       </section>
 
       {/* NOTIFY CTA */}
-      <section className="py-20">
+      <section className="py-10 md:py-20">
         <div className="container">
-          <div className="relative bg-spartak overflow-hidden p-10 md:p-16 text-center skew-x-[-3deg]">
+          <div className="relative bg-spartak overflow-hidden p-8 md:p-16 text-center skew-x-[-3deg]">
             <div className="skew-x-[3deg]">
               <Icon name="BellRing" size={40} className="mx-auto mb-4" />
               <h2 className="font-display font-bold uppercase text-3xl md:text-5xl mb-3">Не пропусти матч</h2>
@@ -235,8 +236,8 @@ const Index = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 py-12">
-        <div className="container grid md:grid-cols-4 gap-8">
+      <footer className="border-t border-white/10 py-8 md:py-12">
+        <div className="container grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 bg-spartak rounded-full flex items-center justify-center font-display font-bold text-xl">С</div>
