@@ -1,22 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
+import func2url from '../../backend/func2url.json';
 
 const HERO_IMG = 'https://cdn.poehali.dev/projects/15cd0231-7a21-487c-b490-aa089d1bfe07/bucket/162f91bd-04f0-41f6-9372-14a3e4d28605.jpg';
 
 const NAV = ['Главная', 'Матчи', 'Билеты', 'Фан ID', 'Новости', 'Контакты'];
 
-const MATCHES = [
-  { id: 1, opp: 'ЦСКА', date: '28 июня', time: '19:00', tour: 'Тур 1', home: true, status: 'В продаже', price: 1500, tag: 'Дерби' },
-  { id: 2, opp: 'Зенит', date: '5 июля', time: '17:30', tour: 'Тур 2', home: true, status: 'В продаже', price: 2200, tag: 'Топ-матч' },
-  { id: 3, opp: 'Локомотив', date: '12 июля', time: '20:00', tour: 'Тур 3', home: false, status: 'Скоро', price: 1200, tag: '' },
-  { id: 4, opp: 'Динамо', date: '19 июля', time: '18:00', tour: 'Тур 4', home: true, status: 'В продаже', price: 1800, tag: 'Дерби' },
-  { id: 5, opp: 'Краснодар', date: '26 июля', time: '19:30', tour: 'Тур 5', home: false, status: 'Скоро', price: 1300, tag: '' },
-  { id: 6, opp: 'Ростов', date: '2 авг', time: '16:00', tour: 'Тур 6', home: true, status: 'В продаже', price: 1100, tag: '' },
-];
+const MATCHES_URL = func2url['matches'];
 
 const FILTERS = ['Все', 'Дома', 'В продаже', 'Дерби'];
+
+interface Match {
+  id: number;
+  opp: string;
+  date: string;
+  time: string;
+  tour: string;
+  home: boolean;
+  status: string;
+  price: number;
+  tag: string;
+}
 
 const STANDINGS = [
   { pos: 1, team: 'Зенит', games: 30, pts: 68 },
@@ -28,8 +34,15 @@ const STANDINGS = [
 
 const Index = () => {
   const [filter, setFilter] = useState('Все');
+  const [matches, setMatches] = useState<Match[]>([]);
 
-  const filtered = MATCHES.filter((m) => {
+  useEffect(() => {
+    fetch(MATCHES_URL)
+      .then((r) => r.json())
+      .then((d) => setMatches(d.matches || []));
+  }, []);
+
+  const filtered = matches.filter((m) => {
     if (filter === 'Дома') return m.home;
     if (filter === 'В продаже') return m.status === 'В продаже';
     if (filter === 'Дерби') return m.tag === 'Дерби';
