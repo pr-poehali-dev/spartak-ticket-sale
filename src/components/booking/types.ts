@@ -3,7 +3,7 @@ import func2url from '../../../backend/func2url.json';
 export const SECTORS_URL = func2url['sectors'];
 
 // ─── Типы ────────────────────────────────────────────────────────
-export type Tier = 'platinum' | 'bronze' | 'standard' | 'vip' | 'corner' | 'press';
+export type Tier = 'platinum' | 'gold' | 'silver' | 'bronze' | 'standard' | 'vip' | 'corner' | 'press';
 
 export interface SectorDef {
   id: string;
@@ -26,15 +26,19 @@ export interface SelectedSeat {
 // ─── Цвета категорий ─────────────────────────────────────────────
 export const TIER_COLOR: Record<Tier, string> = {
   platinum: '#e6c96e',
+  gold:     '#f5a623',
+  silver:   '#a8b8c8',
   bronze:   '#D62027',
-  standard: '#d0378e',  // малиновый — как на схеме
-  vip:      '#3eb89a',  // бирюзовый — как на схеме
-  corner:   '#7B5EA7',  // фиолетовый
+  standard: '#d0378e',
+  vip:      '#3eb89a',
+  corner:   '#7B5EA7',
   press:    '#888',
 };
 
 export const TIER_LABEL: Record<Tier, string> = {
   platinum: 'Platinum',
+  gold:     'Gold',
+  silver:   'Silver',
   bronze:   'Bronze',
   standard: 'Стандарт',
   vip:      'VIP',
@@ -44,6 +48,8 @@ export const TIER_LABEL: Record<Tier, string> = {
 
 export const TIER_PRICE_LABEL: Record<Tier, string> = {
   platinum: '12 000₽',
+  gold:     '8 000₽',
+  silver:   '6 000₽',
   bronze:   '3 500₽',
   standard: '1 800₽',
   vip:      '5 500₽',
@@ -62,8 +68,10 @@ export const SECTORS: SectorDef[] = [
   { id: 'A1',       label: 'A1',       tier: 'bronze',   price: 3500,  rows: 20, seats: 22 },
   { id: 'A2',       label: 'A2',       tier: 'bronze',   price: 3500,  rows: 20, seats: 22 },
   { id: 'A3',       label: 'A3\nBronze', tier: 'bronze', price: 3500,  rows: 20, seats: 22 },
-  { id: 'A4',       label: 'A4',       tier: 'platinum', price: 12000, rows: 16, seats: 18 },
-  { id: 'A5',       label: 'A5',       tier: 'platinum', price: 12000, rows: 16, seats: 18 },
+  { id: 'A4P',      label: 'A4\nPlatinum', tier: 'platinum', price: 12000, rows: 8, seats: 18 },
+  { id: 'A4G',      label: 'A4\nGold',    tier: 'gold',     price: 8000,  rows: 8, seats: 18 },
+  { id: 'A5P',      label: 'A5\nPlatinum', tier: 'platinum', price: 12000, rows: 8, seats: 18 },
+  { id: 'A5S',      label: 'A5\nSilver',   tier: 'silver',   price: 6000,  rows: 8, seats: 18 },
   { id: 'A6',       label: 'A6\nBronze', tier: 'bronze', price: 3500,  rows: 20, seats: 22 },
   { id: 'A7',       label: 'A7',       tier: 'bronze',   price: 3500,  rows: 20, seats: 22 },
   { id: 'A8',       label: 'A8\nПресса', tier: 'press',  price: 0,     rows: 12, seats: 14 },

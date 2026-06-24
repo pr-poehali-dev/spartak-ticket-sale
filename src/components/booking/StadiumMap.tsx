@@ -64,10 +64,12 @@ function StadiumMap(props: StadiumMapProps) {
       <SectorRect id="A1" x={158} y={40} w={52} h={66} {...props} />
       <SectorRect id="A2" x={214} y={40} w={52} h={66} {...props} />
       <SectorRect id="A3" x={270} y={40} w={52} h={66} {...props} />
-      {/* A4 Platinum */}
-      <SectorRect id="A4" x={326} y={40}  w={52} h={66} {...props} fontSize={7} />
-      {/* A5 Platinum */}
-      <SectorRect id="A5" x={382} y={40}  w={52} h={66} {...props} fontSize={7} />
+      {/* A4 Platinum (верх) + A4 Gold (низ) */}
+      <SectorRect id="A4P" x={326} y={40} w={52} h={32} {...props} fontSize={6} />
+      <SectorRect id="A4G" x={326} y={74} w={52} h={32} {...props} fontSize={6} />
+      {/* A5 Platinum (верх) + A5 Silver (низ) */}
+      <SectorRect id="A5P" x={382} y={40} w={52} h={32} {...props} fontSize={6} />
+      <SectorRect id="A5S" x={382} y={74} w={52} h={32} {...props} fontSize={6} />
       <SectorRect id="A6" x={438} y={40} w={52} h={66} {...props} />
       <SectorRect id="A7" x={494} y={40} w={52} h={66} {...props} />
       <SectorRect id="A8" x={550} y={40} w={52} h={66} {...props} fontSize={7} />

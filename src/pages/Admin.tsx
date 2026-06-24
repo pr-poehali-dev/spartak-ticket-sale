@@ -8,7 +8,7 @@ const SECTORS_URL = func2url['sectors'];
 const LOGIN_URL = func2url['admin-login'];
 const MATCHES_URL = func2url['matches'];
 
-type Tier = 'platinum' | 'bronze' | 'standard' | 'vip' | 'corner' | 'press';
+type Tier = 'platinum' | 'gold' | 'silver' | 'bronze' | 'standard' | 'vip' | 'corner' | 'press';
 
 interface Sector {
   id: string;
@@ -36,10 +36,10 @@ const EMPTY_MATCH: Omit<Match, 'id'> = {
 };
 
 const TIER_LABEL: Record<Tier, string> = {
-  platinum: 'Platinum', bronze: 'Bronze', standard: 'Стандарт', vip: 'VIP', corner: 'Угловой', press: 'Пресса',
+  platinum: 'Platinum', gold: 'Gold', silver: 'Silver', bronze: 'Bronze', standard: 'Стандарт', vip: 'VIP', corner: 'Угловой', press: 'Пресса',
 };
 
-const TIERS: Tier[] = ['platinum', 'bronze', 'standard', 'vip', 'corner', 'press'];
+const TIERS: Tier[] = ['platinum', 'gold', 'silver', 'bronze', 'standard', 'vip', 'corner', 'press'];
 
 const inputCls = 'bg-white/5 border border-white/10 px-2 py-1.5 outline-none focus:border-spartak text-white text-sm';
 
