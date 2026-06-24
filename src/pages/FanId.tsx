@@ -59,7 +59,7 @@ const FanId = () => {
       <section className="relative py-20 md:py-28 overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 bg-gradient-to-br from-spartak-dark/30 via-transparent to-transparent pointer-events-none" />
         <div className="container relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="animate-fade-in">
+          <div className="animate-fade-in max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-spartak px-4 py-1.5 rounded-full mb-6 skew-x-[-6deg]">
               <Icon name="IdCard" size={16} />
               <span className="text-xs uppercase tracking-widest font-semibold skew-x-[6deg]">Карта болельщика</span>
@@ -84,56 +84,20 @@ const FanId = () => {
             </div>
           </div>
 
-          {/* Карта Фан ID */}
+          {/* Видео о Фан ID */}
           <div className="flex justify-center lg:justify-end animate-scale-in">
-            <div className="relative w-full max-w-sm">
-              <div className="absolute -inset-8 bg-spartak/10 blur-3xl rounded-full" />
-              <div className="relative bg-gradient-to-br from-spartak-dark to-spartak border border-spartak/50 rounded-2xl p-7 shadow-2xl">
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex items-center gap-2">
-                    <div className="w-9 h-9 bg-white rounded-full flex items-center justify-center font-display font-bold text-spartak text-lg">С</div>
-                    <span className="font-display font-bold uppercase tracking-wider text-sm">Спартак</span>
-                  </div>
-                  <span className="text-white/60 text-xs uppercase tracking-[0.2em] font-display">Фан ID</span>
-                </div>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center border-2 border-white/40">
-                    <Icon name="User" size={30} className="text-white/70" />
-                  </div>
-                  <div>
-                    <div className="font-display font-bold text-xl uppercase">Иван Петров</div>
-                    <div className="text-white/60 text-sm">Болельщик · с 2019</div>
-                    <div className="flex items-center gap-1 mt-1">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <div key={i} className="w-4 h-4 bg-white/80 rounded-sm flex items-center justify-center">
-                          <Icon name="Star" size={10} className="text-spartak" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  {[
-                    { l: 'Номер', v: '47 302 819' },
-                    { l: 'Матчей', v: '48' },
-                    { l: 'Сезон', v: '2026' },
-                    { l: 'Сектор', v: 'A3' },
-                  ].map((d) => (
-                    <div key={d.l} className="bg-white/10 rounded-lg px-3 py-2.5">
-                      <div className="text-white/50 text-[10px] uppercase tracking-wider">{d.l}</div>
-                      <div className="font-display font-bold text-base">{d.v}</div>
-                    </div>
-                  ))}
-                </div>
-                <div className="bg-white rounded-lg p-3 flex items-center justify-center gap-px">
-                  {Array.from({ length: 42 }).map((_, i) => (
-                    <div key={i} className="bg-black rounded-sm"
-                      style={{ width: i % 3 === 0 ? 3 : i % 2 === 0 ? 2 : 1, height: i % 5 === 0 ? 36 : 28 }} />
-                  ))}
-                </div>
-                <div className="text-center text-white/40 text-[10px] mt-2 font-mono tracking-widest">4730281947302819</div>
+            <div className="relative w-full max-w-lg">
+              <div className="absolute -inset-4 bg-spartak/10 blur-3xl rounded-full pointer-events-none" />
+              <div className="relative aspect-video w-full overflow-hidden border border-white/10">
+                <iframe
+                  src="https://www.youtube.com/embed/Rbi-I_ullCM"
+                  title="Карта болельщика — Фан ID"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
               </div>
-              <div className="absolute -bottom-4 left-8 right-8 h-8 bg-spartak/30 blur-xl rounded-full" />
+              <p className="text-center text-white/30 text-xs mt-3">Официальное видео Госуслуг о Фан ID</p>
             </div>
           </div>
         </div>
