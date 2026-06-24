@@ -136,16 +136,14 @@ const Booking = () => {
                 </div>
               </div>
 
-              <div className="w-full overflow-x-auto">
-                <div className="min-w-[520px]">
-                  <StadiumMap
-                    active={activeSector}
-                    hovered={hoveredSector}
-                    onEnter={setHoveredSector}
-                    onLeave={() => setHoveredSector(null)}
-                    onClick={handleSectorClick}
-                  />
-                </div>
+              <div className="w-full">
+                <StadiumMap
+                  active={activeSector}
+                  hovered={hoveredSector}
+                  onEnter={setHoveredSector}
+                  onLeave={() => setHoveredSector(null)}
+                  onClick={handleSectorClick}
+                />
               </div>
 
               {/* Легенда */}
