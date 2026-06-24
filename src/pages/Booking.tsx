@@ -123,7 +123,7 @@ const Booking = () => {
       </div>
 
       {/* ── КОРЗИНА (мобайл — фиксированная панель снизу) ───────── */}
-      {step !== 'done' && (
+      {step !== 'done' && step !== 'checkout' && (
         <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-spartak-black/95 backdrop-blur-md border-t border-white/10 px-4 py-3 flex items-center justify-between gap-3">
           <div>
             <div className="text-white/40 text-xs">{selected.length > 0 ? `${selected.length} билет${selected.length === 1 ? '' : selected.length < 5 ? 'а' : 'ов'}` : 'Выбери место'}</div>
@@ -140,7 +140,7 @@ const Booking = () => {
 
       <div className="container py-6 grid lg:grid-cols-[1fr_340px] gap-6 items-start">
         {/* LEFT */}
-        <div className="pb-24 lg:pb-0">
+        <div className={step === 'checkout' || step === 'done' ? '' : 'pb-24 lg:pb-0'}>
 
           {/* ── СХЕМА СТАДИОНА ───────────────────────────────── */}
           {step === 'map' && (
